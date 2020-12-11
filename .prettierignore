@@ -1,0 +1,5 @@
+# Ignore artifacts:
+# Tip! Base your .prettierignore on .gitignore and .eslintignore (if you have one).
+build
+coverage
+node_modules

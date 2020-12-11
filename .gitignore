@@ -1,0 +1,13 @@
+# System
+.DS_Store
+
+# Code
+node_modules/
+tmp.js
+.eslintcache
+.env
+.vscode
+TODO
+
+# Project specific
+dist/
