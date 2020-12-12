@@ -20,7 +20,7 @@ const getAllRows = (db, query) => {
         reject(error);
       }
 
-      if (!rows.length) {
+      if (!(rows && rows.length)) {
         reject("Database didn't return data!");
       }
 
