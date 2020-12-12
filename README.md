@@ -57,9 +57,10 @@ Open `index.html` in `dist` folder after build is done.
 ## Technologies
 
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Node.js](https://nodejs.org/en/)
+- [SQLite](https://www.sqlite.org/index.html)
 - [Webpack](http://webpack.js.org)
 - [Yarn](https://yarnpkg.com)
-- [SQLite](https://www.sqlite.org/index.html)
 - [ESLint](https://eslint.org)
 - [Jest](https://jestjs.io)
 
