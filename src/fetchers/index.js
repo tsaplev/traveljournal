@@ -48,7 +48,7 @@ const getHtmlData = async () => {
   const shareData = `<script>window.shareData = ${JSON.stringify({
     cities,
     flights,
-  })}; </script>`;
+  })};</script>`;
 
   return {
     ...commonInfo,

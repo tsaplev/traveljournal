@@ -22,17 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const { cities, flights } = window.shareData;
+  const { citiesSelectorTitle, flightsSelectorTitle } = selectorsTitles;
   const maps = {
-    CitiesLayout: new CitiesLayout(
-      [],
-      selectorsTitles.citiesSelectorTitle,
-      cities
-    ),
-    FlightsLayout: new FlightsLayout(
-      [],
-      selectorsTitles.flightsSelectorTitle,
-      flights
-    ),
+    CitiesLayout: new CitiesLayout([], citiesSelectorTitle, cities),
+    FlightsLayout: new FlightsLayout([], flightsSelectorTitle, flights),
   };
 
   return new App(
