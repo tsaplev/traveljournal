@@ -4,7 +4,7 @@ const { pathToDatabase } = require("../config");
 
 const db = new sqlite3.Database(pathToDatabase);
 
-const getAllVisitedPlaces = async () => {
+const getAllVisitedCities = async () => {
   const query = `
     SELECT
     visit.id,
@@ -37,7 +37,7 @@ const getAllVisitedPlaces = async () => {
   return visits;
 };
 
-const getPlacesAsList = (visits) => {
+const getCitiesAsList = (visits) => {
   Object.keys(visits)
     .reverse()
     .map((year) => {
@@ -95,7 +95,7 @@ const getListOfCitiesSortedByCountry = async () => {
 };
 
 module.exports = {
-  getAllVisitedPlaces,
-  getPlacesAsList,
+  getAllVisitedCities,
+  getCitiesAsList,
   getListOfCitiesSortedByCountry,
 };

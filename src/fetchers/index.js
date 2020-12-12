@@ -1,8 +1,8 @@
 const {
-  getAllVisitedPlaces,
-  getPlacesAsList,
+  getAllVisitedCities,
+  getCitiesAsList,
   getListOfCitiesSortedByCountry,
-} = require("./places");
+} = require("./cities");
 const { getAllFlights } = require("./flights");
 const { commonInfo } = require("../config");
 
@@ -22,8 +22,8 @@ const getHtmlForCountries = async () => {
   return html;
 };
 
-const getHtmlForVists = async (places) => {
-  const visits = getPlacesAsList({ ...places });
+const getHtmlForVists = async (cities) => {
+  const visits = getCitiesAsList({ ...cities });
   const html = Object.keys(visits)
     .reverse()
     .reduce((output, year) => {
@@ -41,12 +41,12 @@ const getHtmlForVists = async (places) => {
 };
 
 const getHtmlData = async () => {
-  const places = await getAllVisitedPlaces();
+  const cities = await getAllVisitedCities();
   const flights = await getAllFlights(commonInfo.flightradarUsername);
   const countries = await getHtmlForCountries();
-  const visits = await getHtmlForVists(places);
+  const visits = await getHtmlForVists(cities);
   const shareData = `<script>window.shareData = ${JSON.stringify({
-    places,
+    cities,
     flights,
   })}; </script>`;
 

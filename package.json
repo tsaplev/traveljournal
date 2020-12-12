@@ -1,7 +1,7 @@
 {
   "name": "travelmap",
   "version": "2.0.0",
-  "description": "App for tracking visited places and flights",
+  "description": "App for tracking visited cities and flights",
   "main": "src/index.js",
   "scripts": {
     "start": "webpack serve",

@@ -1,15 +1,15 @@
 # TravelMap — track your travel history
 
-> App for tracking visited places and flights
+> App for tracking visited cities and flights
 
 ![travelmap](./preview.jpg)
 
 ## Features
 
-- View visited places on map
+- View visited cities on map
 - View flight paths on map
 - View list of travels sorted by countries and years
-- Switch between Places Map and Flights Map
+- Switch between Cities Map and Flights Map
 - Keep all your data self-hosted
 
 ## Getting Started
@@ -24,7 +24,7 @@ Use any software your like to fill in SQLite database [db.sqlite3](db.sqlite3) w
 
 ### Complete flightradar profile
 
-App uses [my.flightradar24.com](https://my.flightradar24.com) as the main source for flights data so sign up and complete profile if you don't have one.
+App uses [my.flightradar24.com](https://my.flightradar24.com) as the main source for flights data so sign up and complete your profile if you don't have one.
 
 ### Set up configuration file
 

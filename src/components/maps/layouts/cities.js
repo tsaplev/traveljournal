@@ -1,6 +1,6 @@
 import BaseLayout from "./base";
 
-export default class PlacesLayout extends BaseLayout {
+export default class CitiesLayout extends BaseLayout {
   constructor(style, title, data) {
     super(style, title);
     this.markers = [];

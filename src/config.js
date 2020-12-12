@@ -9,7 +9,7 @@ const commonInfo = {
 const pathToDatabase = `${__dirname}/../db.sqlite3`;
 
 const selectorsTitles = {
-  placesSelectorTitle: "📍Places",
+  citiesSelectorTitle: "📍Cities",
   flightsSelectorTitle: "✈️ Flights",
 };
 

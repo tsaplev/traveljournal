@@ -5,12 +5,12 @@ export default class FlightsLayout extends BaseLayout {
     super(style, title);
     this.markers = [];
     this.polylines = [];
-    this.placesPoints = data.points;
+    this.citiesPoints = data.points;
     this.flightPaths = data.paths;
   }
 
   render() {
-    this.placesPoints.forEach((point) => {
+    this.citiesPoints.forEach((point) => {
       this.markers.push(this.map.renderMarker(point.lat, point.lon));
     });
     this.flightPaths.forEach((path) =>

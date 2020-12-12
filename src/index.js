@@ -1,7 +1,7 @@
 import App from "./components/app/index";
 
 import GoogleMaps from "./components/maps/index";
-import PlacesLayout from "./components/maps/layouts/places";
+import CitiesLayout from "./components/maps/layouts/cities";
 import FlightsLayout from "./components/maps/layouts/flights";
 
 import { googleMapConfig, selectorsTitles } from "./config";
@@ -21,12 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const { places, flights } = window.shareData;
+  const { cities, flights } = window.shareData;
   const maps = {
-    PlacesLayout: new PlacesLayout(
+    CitiesLayout: new CitiesLayout(
       [],
-      selectorsTitles.placesSelectorTitle,
-      places
+      selectorsTitles.citiesSelectorTitle,
+      cities
     ),
     FlightsLayout: new FlightsLayout(
       [],
