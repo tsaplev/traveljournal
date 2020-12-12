@@ -1,4 +1,4 @@
-# TravelMap — track your personal travel history
+# TravelMap — track your travel history
 
 > App for tracking visited places and flights
 

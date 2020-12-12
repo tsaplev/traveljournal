@@ -1,7 +1,7 @@
 const commonInfo = {
   siteTitle: "Maro's Polo travels",
   title: "Marco Polo",
-  subTitle: "Exporer, merchant, writer",
+  subTitle: "Explorer, merchant, writer",
   googleMapApiKey: "",
   flightradarUsername: "",
 };
