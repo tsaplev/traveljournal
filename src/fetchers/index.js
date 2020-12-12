@@ -3,6 +3,7 @@ const {
   getCitiesAsList,
   getListOfCitiesSortedByCountry,
 } = require("./cities");
+const { generateShareData } = require("./utils");
 const { getAllFlights } = require("./flights");
 const { commonInfo } = require("../config");
 
@@ -45,10 +46,7 @@ const getHtmlData = async () => {
   const flights = await getAllFlights(commonInfo.flightradarUsername);
   const countries = await getHtmlForCountries();
   const visits = await getHtmlForVists(cities);
-  const shareData = `<script>window.shareData = ${JSON.stringify({
-    cities,
-    flights,
-  })};</script>`;
+  const shareData = generateShareData({ cities, flights });
 
   return {
     ...commonInfo,

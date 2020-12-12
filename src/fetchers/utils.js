@@ -27,4 +27,8 @@ const queryAllRows = (db, query) => {
   });
 };
 
-module.exports = { monthNames, queryAllRows };
+const generateShareData = (data) => {
+  return `<script>window.shareData = ${JSON.stringify(data)};</script>`;
+};
+
+module.exports = { monthNames, generateShareData, queryAllRows };
