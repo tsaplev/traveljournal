@@ -1,5 +1,5 @@
 const sqlite3 = require("sqlite3").verbose();
-const { monthNames, getAllRows } = require("./utils");
+const { monthNames, queryAllRows } = require("./utils");
 const { pathToDatabase } = require("../config");
 
 const db = new sqlite3.Database(pathToDatabase);
@@ -22,7 +22,7 @@ const getAllVisitedPlaces = async () => {
     ORDER BY date(visit.arrival) ASC
   `;
 
-  let visits = await getAllRows(db, query);
+  let visits = await queryAllRows(db, query);
 
   visits = visits.reduce((result, visit) => {
     const currentYear = new Date(visit.arrival).getFullYear();
@@ -85,7 +85,7 @@ const getListOfCitiesSortedByCountry = async () => {
     ORDER BY country.name
   `;
 
-  let countries = await getAllRows(db, query);
+  let countries = await queryAllRows(db, query);
 
   countries.map((country) => {
     country.cities = country.cities.split(",").sort().join(", ");

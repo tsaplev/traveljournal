@@ -13,14 +13,12 @@ const monthNames = [
   "December",
 ];
 
-const getAllRows = (db, query) => {
+const queryAllRows = (db, query) => {
   return new Promise((resolve, reject) => {
     db.all(query, [], (error, rows) => {
       if (error) {
         reject(error);
-      }
-
-      if (!(rows && rows.length)) {
+      } else if (!(rows && rows.length)) {
         reject("Database didn't return data!");
       }
 
@@ -29,4 +27,4 @@ const getAllRows = (db, query) => {
   });
 };
 
-module.exports = { monthNames, getAllRows };
+module.exports = { monthNames, queryAllRows };
