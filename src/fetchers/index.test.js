@@ -1,5 +1,4 @@
 const { getHtmlData } = require("./index");
-const { getAllVisitedCities } = require("./cities");
 
 jest.mock("./cities");
 
