@@ -34,7 +34,7 @@ const dateToHRString = (_arrival, _departure) => {
       date = `${monthNames[arrivalMonth]} ${arrivalDay} - ${departureDay}`; // Feb 1 - 3
     }
   } else {
-    if (Math.floor((departure - arrival) / 86400000) > 364) {
+    if (Math.floor((departure - arrival) / 86400000) >= 365) {
       date = `${monthNames[arrivalMonth]} ${arrivalDay} ${arrivalYear} - ${monthNames[departureMonth]} ${departureDay} ${departureYear}`; // Jun 14 2018 — Feb 5 2020
     } else {
       date = `${monthNames[arrivalMonth]} ${arrivalDay} - ${monthNames[departureMonth]} ${departureDay}`; // Dec 30 - Jan 15
