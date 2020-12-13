@@ -58,13 +58,13 @@ Open `index.html` in `dist` folder after build is done.
 
 ## Technologies
 
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [Node.js](https://nodejs.org/en/)
-- [SQLite](https://www.sqlite.org/index.html)
-- [Webpack](http://webpack.js.org)
-- [Yarn](https://yarnpkg.com)
-- [ESLint](https://eslint.org)
-- [Jest](https://jestjs.io)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) is the main development language.
+- [Node.js](https://nodejs.org/en/) is for running scripts.
+- [SQLite](https://www.sqlite.org/index.html) is for storing data.
+- [Webpack](http://webpack.js.org) is for bundling frontend code.
+- [Yarn](https://yarnpkg.com) is for dependency management.
+- [ESLint](https://eslint.org) is for checking code style.
+- [Jest](https://jestjs.io) is for testing.
 
 ## License
 
