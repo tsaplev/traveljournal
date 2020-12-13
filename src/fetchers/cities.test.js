@@ -8,17 +8,31 @@ const { visits, countries } = require("./__fixtures__/cities");
 const { queryAllRows } = require("./utils");
 jest.mock("./utils");
 
-describe("Cities", () => {
-  test("getAllVisitedCities", async () => {
+describe("Fetch data from database", () => {
+  test("get all visited cities", async () => {
     queryAllRows.mockResolvedValue(visits);
 
-    const visitedCities = await getAllVisitedCities();
-    expect(Object.keys(visitedCities)).toEqual(["1995", "2007", "2014"]);
-    expect(visitedCities["1995"]).toHaveLength(1);
-    expect(visitedCities["2014"]).toHaveLength(2);
+    const tripsByYear = await getAllVisitedCities();
+    Object.entries(tripsByYear).forEach((tripByYear) => {
+      const [year, trips] = tripByYear;
+      expect(year).toHaveLength(4);
+      trips.forEach((trip) => {
+        expect(Object.keys(trip)).toEqual([
+          "id",
+          "arrival",
+          "departure",
+          "city",
+          "lat",
+          "lon",
+          "country",
+          "country_code",
+          "country_flag",
+        ]);
+      });
+    });
   });
 
-  test("getCitiesAsList", async () => {
+  test("get cities as list", async () => {
     queryAllRows.mockResolvedValue(visits);
     const visitedCities = await getAllVisitedCities();
 
@@ -32,13 +46,13 @@ describe("Cities", () => {
     });
   });
 
-  test("getListOfCitiesSortedByCountry", async () => {
+  test("get list of cities sorted by country", async () => {
     queryAllRows.mockResolvedValue(countries);
 
     const _countries = await getListOfCitiesSortedByCountry();
     Object.values(_countries).forEach((country) => {
       expect(Object.keys(country)).toEqual(["flag", "name", "cities"]);
-      // TODO expect country.cities not toContaint string with non space after comma
+      expect(country.cities).toEqual(expect.not.stringMatching(/(,(?=\S)|:)/));
     });
   });
 });
