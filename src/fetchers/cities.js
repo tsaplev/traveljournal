@@ -1,5 +1,5 @@
 const sqlite3 = require("sqlite3").verbose();
-const { monthNames, queryAllRows } = require("./utils");
+const { queryAllRows, dateToHRString } = require("./utils");
 const { pathToDatabase } = require("../config");
 
 const db = new sqlite3.Database(pathToDatabase);
@@ -42,30 +42,10 @@ const getCitiesAsList = (visits) => {
     .reverse()
     .map((year) => {
       visits[year] = visits[year].map((trip) => {
-        const arrival = new Date(trip.arrival);
-        const arrivalDay = arrival.getDate();
-        const arrivalMonth = arrival.getMonth();
-
-        const departure = new Date(trip.departure);
-        const departureDay = departure.getDate();
-        const departureMonth = departure.getMonth();
-
-        let date = "";
-        if (arrivalDay === departureDay && arrivalMonth === departureMonth) {
-          date = `${monthNames[arrivalMonth]} ${arrivalDay}`;
-        } else if (arrivalMonth !== departureMonth) {
-          date = `${monthNames[arrivalMonth]} ${arrivalDay} - ${monthNames[departureMonth]} ${departureDay}`;
-        } else if (
-          arrivalDay !== departureDay &&
-          arrivalMonth === departureMonth
-        ) {
-          date = `${monthNames[arrivalMonth]} ${arrivalDay} - ${departureDay}`;
-        }
-
         return {
           country: trip.country_flag ? trip.country_flag : trip.country_code,
           city: trip.city,
-          date: date,
+          date: dateToHRString(trip.arrival, trip.departure),
         };
       });
     });
