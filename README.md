@@ -20,7 +20,7 @@
 
 > **NOTE**: _You are required to have basic understanding of relational databases._
 
-Use any software your like to fill in SQLite database [db.sqlite3](db.sqlite3) with the following table sequence: `continent`, `country`, `city`, `visit`.
+Use any software your like to fill in SQLite database [db.sqlite3](./db.sqlite3) with the following table sequence: `continent`, `country`, `city`, `visit`.
 
 ![travelmap](./dbschema.jpg)
 
@@ -68,4 +68,4 @@ Open `index.html` in `dist` folder after build is done.
 
 ## License
 
-#### [MIT](./LICENSE)
+[MIT](./LICENSE)
