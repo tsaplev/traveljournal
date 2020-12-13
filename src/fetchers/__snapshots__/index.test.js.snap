@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Generating html snippets with data generating html snippet with list of countries 1`] = `
+"
+    <ul class=\\"countries-list\\">
+      <li class=\\"countries-list__country\\">
+        <span class=\\"country\\">🇦🇺 Australia: </span>Sydney
+      </li>
+    </ul>
+    
+    <ul class=\\"countries-list\\">
+      <li class=\\"countries-list__country\\">
+        <span class=\\"country\\">🇷🇺 Russia: </span>Moscow, Sevastopol
+      </li>
+    </ul>
+    
+    <ul class=\\"countries-list\\">
+      <li class=\\"countries-list__country\\">
+        <span class=\\"country\\">🇺🇸 United States of America: </span>New York
+      </li>
+    </ul>
+    "
+`;
+
+exports[`Generating html snippets with data generating html snippet with list of trips sorted by year 1`] = `"<p><strong class=\\"year\\">2014</strong><br><span class='log'>🇷🇺 Moscow <span class='time'>January 7 - 9</span></span><br><span class='log'>🇷🇺 Sevastopol <span class='time'>February 20 - March 26</span></span><br></p><p><strong class=\\"year\\">2007</strong><br><span class='log'>🇦🇺 Sydney <span class='time'>November 5 - 18</span></span><br></p><p><strong class=\\"year\\">1995</strong><br><span class='log'>🇺🇸 New York <span class='time'>May 10 - 20</span></span><br></p>"`;
