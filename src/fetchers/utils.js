@@ -26,12 +26,14 @@ const dateToHRString = (_arrival, _departure) => {
 
   let date = "";
   if (arrivalYear === departureYear) {
-    if (arrivalDay === departureDay && arrivalMonth === departureMonth) {
-      date = `${monthNames[arrivalMonth]} ${arrivalDay}`; // Feb 8
-    } else if (arrivalMonth !== departureMonth) {
+    if (arrivalMonth === departureMonth) {
+      if (arrivalDay === departureDay) {
+        date = `${monthNames[arrivalMonth]} ${arrivalDay}`; // Feb 8
+      } else {
+        date = `${monthNames[arrivalMonth]} ${arrivalDay} - ${departureDay}`; // Feb 1 - 3
+      }
+    } else {
       date = `${monthNames[arrivalMonth]} ${arrivalDay} - ${monthNames[departureMonth]} ${departureDay}`; // Jan 18 — Feb 3
-    } else if (arrivalDay !== departureDay && arrivalMonth === departureMonth) {
-      date = `${monthNames[arrivalMonth]} ${arrivalDay} - ${departureDay}`; // Feb 1 - 3
     }
   } else {
     if (Math.floor((departure - arrival) / 86400000) >= 365) {
