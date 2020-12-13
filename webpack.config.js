@@ -5,7 +5,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const { getHtmlData } = require("./src/fetchers/index");
+const { getHtmlData } = require("./src/fetchers/data");
 
 module.exports = async () => {
   const htmlData = await getHtmlData();
