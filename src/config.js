@@ -3,7 +3,7 @@ const commonInfo = {
   title: "Marco Polo",
   subTitle: "Explorer, merchant, writer",
   googleMapApiKey: "",
-  flightradarUsername: "",
+  flightradarUsername: "tsaplev",
 };
 
 const pathToDatabase = `${__dirname}/../db.sqlite3`;
