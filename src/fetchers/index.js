@@ -56,4 +56,4 @@ const getHtmlData = async () => {
   };
 };
 
-module.exports = { getHtmlData };
+module.exports = { getHtmlForCountries, getHtmlForVists, getHtmlData };
