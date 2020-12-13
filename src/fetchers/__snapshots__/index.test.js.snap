@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Generating html snippets with data collecting all data for the main template 1`] = `
+exports[`Fetch data from all sources collect data for the main template 1`] = `
 "
     <ul class=\\"countries-list\\">
       <li class=\\"countries-list__country\\">
@@ -22,4 +22,4 @@ exports[`Generating html snippets with data collecting all data for the main tem
     "
 `;
 
-exports[`Generating html snippets with data collecting all data for the main template 2`] = `"<p><strong class=\\"year\\">2014</strong><br><span class='log'>🇷🇺 Moscow <span class='time'>January 7 - 9</span></span><br><span class='log'>🇷🇺 Sevastopol <span class='time'>February 20 - March 26</span></span><br></p><p><strong class=\\"year\\">2007</strong><br><span class='log'>🇦🇺 Sydney <span class='time'>November 5 - 18</span></span><br></p><p><strong class=\\"year\\">1995</strong><br><span class='log'>🇺🇸 New York <span class='time'>May 10 - 20</span></span><br></p>"`;
+exports[`Fetch data from all sources collect data for the main template 2`] = `"<p><strong class=\\"year\\">2014</strong><br><span class='log'>🇷🇺 Moscow <span class='time'>January 7 - 9</span></span><br><span class='log'>🇷🇺 Sevastopol <span class='time'>February 20 - March 26</span></span><br></p><p><strong class=\\"year\\">2007</strong><br><span class='log'>🇦🇺 Sydney <span class='time'>November 5 - 18</span></span><br></p><p><strong class=\\"year\\">1995</strong><br><span class='log'>🇺🇸 New York <span class='time'>May 10 - 20</span></span><br></p>"`;
