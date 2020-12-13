@@ -1,5 +1,7 @@
 # TravelMap — track your travel history
 
+[![GitHub Actions](https://github.com/tsaplev/travelmap/workflows/CI/badge.svg)](https://github.com/tsaplev/travelmap/actions)
+
 > App for tracking visited cities and flights
 
 ![travelmap](./preview.jpg)
