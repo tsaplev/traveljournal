@@ -4,31 +4,44 @@ const {
   getListOfCitiesSortedByCountry,
 } = require("./cities");
 const { visits, countries } = require("./__fixtures__/cities");
+const { matchers } = require("jest-json-schema");
+
+expect.extend(matchers);
 
 const { queryAllRows } = require("./utils");
-jest.mock("./utils");
+jest.mock("./utils", () => ({
+  ...jest.requireActual("./utils.js"),
+  queryAllRows: jest.fn(),
+}));
 
 describe("Fetch data from database", () => {
   test("get all visited cities", async () => {
     queryAllRows.mockResolvedValue(visits);
 
     const tripsByYear = await getAllVisitedCities();
-    Object.entries(tripsByYear).forEach((tripByYear) => {
-      const [year, trips] = tripByYear;
-      expect(year).toHaveLength(4);
-      trips.forEach((trip) => {
-        expect(Object.keys(trip)).toEqual([
-          "id",
-          "arrival",
-          "departure",
-          "city",
-          "lat",
-          "lon",
-          "country",
-          "country_code",
-          "country_flag",
-        ]);
-      });
+
+    expect(tripsByYear).toMatchSchema({
+      type: "object",
+      patternProperties: {
+        "^[12][0-9]{3}$": {
+          type: "array",
+          items: {
+            type: "object",
+            required: [
+              "id",
+              "arrival",
+              "departure",
+              "city",
+              "lat",
+              "lon",
+              "country",
+              "country_code",
+              "country_flag",
+            ],
+          },
+        },
+      },
+      additionalProperties: false,
     });
   });
 
@@ -37,12 +50,19 @@ describe("Fetch data from database", () => {
     const visitedCities = await getAllVisitedCities();
 
     const cities = await getCitiesAsList(visitedCities);
-    Object.entries(cities).forEach((city) => {
-      const [year, trips] = city;
-      expect(year).toHaveLength(4);
-      trips.forEach((trip) => {
-        expect(Object.keys(trip)).toEqual(["country", "city", "date"]);
-      });
+
+    expect(cities).toMatchSchema({
+      type: "object",
+      patternProperties: {
+        "^[12][0-9]{3}$": {
+          type: "array",
+          items: {
+            type: "object",
+            required: ["country", "city", "date"],
+          },
+        },
+      },
+      additionalProperties: false,
     });
   });
 
@@ -50,9 +70,18 @@ describe("Fetch data from database", () => {
     queryAllRows.mockResolvedValue(countries);
 
     const _countries = await getListOfCitiesSortedByCountry();
-    Object.values(_countries).forEach((country) => {
-      expect(Object.keys(country)).toEqual(["flag", "name", "cities"]);
-      expect(country.cities).toEqual(expect.not.stringMatching(/(,(?=\S)|:)/));
+    expect(_countries).toMatchSchema({
+      type: "array",
+      items: {
+        type: "object",
+        required: ["flag", "name", "cities"],
+        properties: {
+          cities: {
+            type: "string",
+            not: { pattern: "(,(?=S)|:)" },
+          },
+        },
+      },
     });
   });
 });

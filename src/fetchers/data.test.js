@@ -1,4 +1,7 @@
 const { getHtmlData } = require("./data");
+const { matchers } = require("jest-json-schema");
+
+expect.extend(matchers);
 
 jest.mock("./cities");
 jest.mock("../config", () => {
@@ -16,16 +19,19 @@ describe("Fetch data from all sources", () => {
   test("collect data for the main template", async () => {
     const data = await getHtmlData();
 
-    expect(Object.keys(data)).toEqual([
-      "siteTitle",
-      "title",
-      "subTitle",
-      "googleMapApiKey",
-      "flightradarUsername",
-      "shareData",
-      "countries",
-      "visits",
-    ]);
+    expect(data).toMatchSchema({
+      type: "object",
+      required: [
+        "siteTitle",
+        "title",
+        "subTitle",
+        "googleMapApiKey",
+        "flightradarUsername",
+        "shareData",
+        "countries",
+        "visits",
+      ],
+    });
     expect(data.countries).toMatchSnapshot();
     expect(data.visits).toMatchSnapshot();
     expect(data.shareData).toEqual(

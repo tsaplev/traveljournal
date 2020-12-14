@@ -6,7 +6,8 @@ expect.extend(matchers);
 describe("Fetching flights data", () => {
   test("fetch data from myflightradar", async () => {
     const flightsData = await getAllFlights("tsaplev");
-    const flightsSchema = {
+
+    expect(flightsData).toMatchSchema({
       type: "object",
       required: ["points", "paths"],
       additionalProperties: false,
@@ -31,8 +32,6 @@ describe("Fetching flights data", () => {
           },
         },
       },
-    };
-
-    expect(flightsData).toMatchSchema(flightsSchema);
+    });
   });
 });
