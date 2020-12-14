@@ -1,5 +1,4 @@
 const path = require("path");
-
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -7,8 +6,9 @@ const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { getHtmlData } = require("./src/fetchers/data");
 
-module.exports = async () => {
-  const htmlData = await getHtmlData();
+module.exports = async (env) => {
+  const htmlData =
+    env && env.demo ? require("./demo-data.json") : await getHtmlData();
 
   return {
     entry: {

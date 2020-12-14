@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "webpack serve",
+    "start:demo": "yarn && webpack serve --env=demo",
     "build": "webpack --mode production",
     "test": "jest"
   },

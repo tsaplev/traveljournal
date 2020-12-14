@@ -1,9 +1,9 @@
 const commonInfo = {
-  siteTitle: "Maro's Polo travels",
-  title: "Marco Polo",
-  subTitle: "Explorer, merchant, writer",
+  siteTitle: "",
+  title: "",
+  subTitle: "",
   googleMapApiKey: "",
-  flightradarUsername: "tsaplev",
+  flightradarUsername: "",
 };
 
 const pathToDatabase = `${__dirname}/../db.sqlite3`;

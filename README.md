@@ -14,6 +14,14 @@
 - Switch between Cities Map and Flights Map
 - Keep all your data self-hosted
 
+## Demo mode
+
+You can try app without making any effort.
+
+```sh
+yarn start:demo
+```
+
 ## Getting Started
 
 ### Fill database with personal travels
