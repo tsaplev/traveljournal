@@ -19,6 +19,7 @@ module.exports = async (env) => {
       path: path.resolve(__dirname, "dist"),
     },
     devServer: {
+      open: true,
       contentBase: path.resolve(__dirname, "dist"),
       publicPath: "/",
     },
