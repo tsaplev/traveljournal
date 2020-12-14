@@ -1,16 +1,16 @@
 const { getHtmlData } = require("./data");
 
 jest.mock("./cities");
-jest.mock("../config", () => ({
-  ...jest.requireActual("../config"),
-  commonInfo: {
-    siteTitle: "website title",
-    title: "full name",
-    subTitle: "text under the name",
-    googleMapApiKey: "sUpErSeCrEtKeY",
-    flightradarUsername: "tsaplev",
-  },
-}));
+jest.mock("../config", () => {
+  const config = jest.requireActual("../config");
+  return {
+    ...config,
+    commonInfo: {
+      ...config.commonInfo,
+      flightradarUsername: "tsaplev",
+    },
+  };
+});
 
 describe("Fetch data from all sources", () => {
   test("collect data for the main template", async () => {
