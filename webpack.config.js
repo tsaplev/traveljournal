@@ -18,6 +18,10 @@ module.exports = async (env) => {
       filename: "[name].[chunkhash].js",
       path: path.resolve(__dirname, "dist"),
     },
+    devServer: {
+      contentBase: path.resolve(__dirname, "dist"),
+      publicPath: "/",
+    },
     plugins: [
       new HtmlWebpackPlugin({
         minify: true,
