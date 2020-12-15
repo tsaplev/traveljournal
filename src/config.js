@@ -6,7 +6,7 @@ const commonInfo = {
   flightradarUsername: "",
 };
 
-const pathToDatabase = `${__dirname}/../db.sqlite3`;
+const databasePath = `${__dirname}/../db.sqlite3`;
 
 const selectorsTitles = {
   citiesSelectorTitle: "📍Cities",
@@ -32,7 +32,7 @@ const googleMapConfig = (maps) => {
 
 module.exports = {
   commonInfo,
-  pathToDatabase,
+  databasePath,
   selectorsTitles,
   googleMapConfig,
 };

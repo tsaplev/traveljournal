@@ -13,13 +13,13 @@ const monthNames = [
   "December",
 ];
 
-const dateToHRString = (_arrival, _departure) => {
-  const arrival = new Date(_arrival);
+const dateToHRString = (arrival, departure) => {
+  arrival = new Date(arrival);
   const arrivalDay = arrival.getDate();
   const arrivalMonth = arrival.getMonth();
   const arrivalYear = arrival.getFullYear();
 
-  const departure = new Date(_departure);
+  departure = new Date(departure);
   const departureDay = departure.getDate();
   const departureMonth = departure.getMonth();
   const departureYear = departure.getFullYear();

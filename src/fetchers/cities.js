@@ -1,8 +1,8 @@
 const sqlite3 = require("sqlite3").verbose();
 const { queryAllRows, dateToHRString } = require("./utils");
-const { pathToDatabase } = require("../config");
+const { databasePath } = require("../config");
 
-const db = new sqlite3.Database(pathToDatabase);
+const db = new sqlite3.Database(databasePath);
 
 const getAllVisitedCities = async () => {
   const query = `

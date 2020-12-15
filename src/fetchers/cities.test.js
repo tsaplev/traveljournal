@@ -3,7 +3,7 @@ const {
   getCitiesAsList,
   getListOfCitiesSortedByCountry,
 } = require("./cities");
-const { visits, countries } = require("./__fixtures__/cities");
+const fixtures = require("./__fixtures__/cities");
 const { matchers } = require("jest-json-schema");
 
 expect.extend(matchers);
@@ -13,7 +13,7 @@ jest.mock("./utils");
 
 describe("Fetch data from database", () => {
   test("get all visited cities", async () => {
-    queryAllRows.mockResolvedValue(visits);
+    queryAllRows.mockResolvedValue(fixtures.visits);
 
     const tripsByYear = await getAllVisitedCities();
 
@@ -43,7 +43,7 @@ describe("Fetch data from database", () => {
   });
 
   test("get cities as list", async () => {
-    queryAllRows.mockResolvedValue(visits);
+    queryAllRows.mockResolvedValue(fixtures.visits);
     const visitedCities = await getAllVisitedCities();
 
     const cities = await getCitiesAsList(visitedCities);
@@ -64,10 +64,11 @@ describe("Fetch data from database", () => {
   });
 
   test("get list of cities sorted by country", async () => {
-    queryAllRows.mockResolvedValue(countries);
+    queryAllRows.mockResolvedValue(fixtures.countries);
 
-    const _countries = await getListOfCitiesSortedByCountry();
-    expect(_countries).toMatchSchema({
+    const countries = await getListOfCitiesSortedByCountry();
+
+    expect(countries).toMatchSchema({
       type: "array",
       items: {
         type: "object",
