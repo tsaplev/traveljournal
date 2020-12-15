@@ -1,4 +1,4 @@
-const flightsData = {
+const flights = {
   paths: [
     ["43.398333", "132.146667", "55.971667", "37.415000", "#f89800"],
     ["55.971667", "37.415000", "40.639750", "-73.778925", "#f89800"],
@@ -40,4 +40,4 @@ const flightsData = {
   ],
 };
 
-module.exports = { flightsData };
+module.exports = { flights };
