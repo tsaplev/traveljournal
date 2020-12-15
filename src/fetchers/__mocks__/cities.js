@@ -1,32 +1,21 @@
-const {
-  getAllVisitedCities,
-  getCitiesAsList,
-  getListOfCitiesSortedByCountry,
-} = jest.requireActual("../cities");
-
+const cities = jest.requireActual("../cities");
 const { visits, countries } = require("../__fixtures__/cities");
-
 const { queryAllRows } = require("../utils");
 
-jest.mock("../utils", () => ({
-  ...jest.requireActual("../utils.js"),
-  queryAllRows: jest.fn(),
-}));
+jest.mock("../utils");
 
-_getAllVisitedCities = jest.fn(() => {
+const getAllVisitedCities = () => {
   queryAllRows.mockResolvedValue(visits);
-  return getAllVisitedCities();
-});
+  return cities.getAllVisitedCities();
+};
 
-_getCitiesAsList = getCitiesAsList;
-
-_getListOfCitiesSortedByCountry = jest.fn(() => {
+const getListOfCitiesSortedByCountry = () => {
   queryAllRows.mockResolvedValue(countries);
-  return getListOfCitiesSortedByCountry();
-});
+  return cities.getListOfCitiesSortedByCountry();
+};
 
 module.exports = {
-  getAllVisitedCities: _getAllVisitedCities,
-  getCitiesAsList: _getCitiesAsList,
-  getListOfCitiesSortedByCountry: _getListOfCitiesSortedByCountry,
+  ...cities,
+  getAllVisitedCities,
+  getListOfCitiesSortedByCountry,
 };

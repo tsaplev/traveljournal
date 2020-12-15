@@ -9,10 +9,7 @@ const { matchers } = require("jest-json-schema");
 expect.extend(matchers);
 
 const { queryAllRows } = require("./utils");
-jest.mock("./utils", () => ({
-  ...jest.requireActual("./utils.js"),
-  queryAllRows: jest.fn(),
-}));
+jest.mock("./utils");
 
 describe("Fetch data from database", () => {
   test("get all visited cities", async () => {
