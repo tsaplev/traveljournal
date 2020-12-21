@@ -9,9 +9,9 @@ import { googleMapConfig, selectorsTitles } from "./config";
 import "./index.css";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const tabs = document.querySelector("div.filters__section");
+  const tabs = document.querySelector("div.filters-box");
   tabs.addEventListener("click", function ({ target }) {
-    if (target.classList.contains("filters__section-item")) {
+    if (target.classList.contains("filters-box__item")) {
       Array.from(tabs.children).forEach((tab) => {
         const contentId = tab.getAttribute("data-content");
         document.getElementsByClassName(contentId)[0].style.display =

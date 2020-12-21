@@ -9,38 +9,36 @@
 
   <body>
     <div class="container">
-      <header class="header__menu">
-        <h1 class="header__menu-title">
-          <a href="/"><%= htmlWebpackPlugin.options.title %></a>
+      <header class="header">
+        <h1 class="header__title">
+          <a class="header__link" href="/"><%= htmlWebpackPlugin.options.title %></a>
         </h1>
-        <h2 class="header__menu-subtitle"><%= htmlWebpackPlugin.options.subTitle %></h2>
-        <nav class="header__menu-list"></nav>
+        <h2 class="header__subtitle"><%= htmlWebpackPlugin.options.subTitle %></h2>
       </header>
-
-      <section class="content">
-        <section class="travel">
+      <div class="content">
+        <article class="travel-page">
           <div class="map">
-            <div id="travel-map"/>
+            <div id="travel-map"></div>
           </div>
-          <article class="post__container">
-            <div class="filters__block">
-              <div class="filters__section-label">List of</div>
-              <div class="filters__section">
-                <div class="filters__section-item _active" data-content="countries-list">
+          <article class="travel-post">
+            <div class="filters">
+              <div class="filters-box__label">List of</div>
+              <div class="filters-box">
+                <div class="filters-box__item _active" data-content="countries-list">
                   countries
                 </div>
-                <div class="filters__section-item" data-content="visits-list">
+                <div class="filters-box__item" data-content="visits-list">
                   trips
                 </div>
               </div>
             </div>
-            <div class="post__body">
+            <div class="travel-post__body">
               <ol class="countries-list"><%= htmlWebpackPlugin.options.countries %></ol>
               <div class="visits-list"><%= htmlWebpackPlugin.options.visits %></div>
             </div>
           </article>
-        </section>
-      </section>
+        </article>
+      </div>
     </div>
     <%= htmlWebpackPlugin.options.shareData %>
   </body>
