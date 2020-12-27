@@ -1,10 +1,6 @@
-const sqlite3 = require("sqlite3").verbose();
-const config = require("../config");
-const { queryAllRows, dateToHRString } = require("./utils");
+const { dateToHRString } = require("./utils");
 
-const db = new sqlite3.Database(config.databasePath);
-
-const getAllVisitedCities = async () => {
+const getAllVisitedCities = async (db) => {
   const query = `
     SELECT
     visit.id,
@@ -22,7 +18,7 @@ const getAllVisitedCities = async () => {
     ORDER BY date(visit.arrival) ASC
   `;
 
-  let visits = await queryAllRows(db, query);
+  let visits = await db.getAllRows(query);
 
   visits = visits.reduce((result, visit) => {
     const currentYear = new Date(visit.arrival).getFullYear();
@@ -53,7 +49,7 @@ const getCitiesAsList = (visits) => {
   return visits;
 };
 
-const getListOfCitiesSortedByCountry = async () => {
+const getListOfCitiesSortedByCountry = async (db) => {
   const query = `
     SELECT 
     country.flag,
@@ -65,7 +61,7 @@ const getListOfCitiesSortedByCountry = async () => {
     ORDER BY country.name
   `;
 
-  let countries = await queryAllRows(db, query);
+  let countries = await db.getAllRows(query);
 
   countries.map((country) => {
     country.cities = country.cities.split(",").sort().join(", ");

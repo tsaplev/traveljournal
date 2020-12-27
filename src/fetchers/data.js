@@ -5,10 +5,11 @@ const {
 } = require("./cities");
 const { generateShareData } = require("./utils");
 const { getAllFlights } = require("./flights");
-const { commonInfo } = require("../config");
+const config = require("../config");
+const { databasePath, commonInfo } = config;
+const Database = require("./db");
 
-const getHtmlForCountries = async () => {
-  const countries = await getListOfCitiesSortedByCountry();
+const getHtmlForCountries = async (countries) => {
   const html = countries.reduce((output, country) => {
     output += `
     <ul class="countries-list">
@@ -23,8 +24,7 @@ const getHtmlForCountries = async () => {
   return html;
 };
 
-const getHtmlForVists = async (cities) => {
-  const visits = getCitiesAsList({ ...cities });
+const getHtmlForVists = async (visits) => {
   const html = Object.keys(visits)
     .reverse()
     .reduce((output, year) => {
@@ -42,16 +42,20 @@ const getHtmlForVists = async (cities) => {
 };
 
 const getHtmlData = async () => {
-  const cities = await getAllVisitedCities();
-  const flights = await getAllFlights(commonInfo.flightradarUsername);
-  const countries = await getHtmlForCountries();
-  const visits = await getHtmlForVists(cities);
+  const db = new Database(databasePath);
+
+  const cities = await getAllVisitedCities(db);
+  const countries = await getListOfCitiesSortedByCountry(db);
+  const flights = await getAllFlights("tsaplev");
+
+  const countriesLayout = await getHtmlForCountries(countries);
+  const visits = await getHtmlForVists(getCitiesAsList({ ...cities }));
   const shareData = generateShareData({ cities, flights });
 
   return {
     ...commonInfo,
     shareData,
-    countries,
+    countries: countriesLayout,
     visits,
   };
 };
