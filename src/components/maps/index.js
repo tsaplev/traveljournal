@@ -1,4 +1,4 @@
-export default class GoogleMaps {
+class GoogleMaps {
   constructor(element, config) {
     this.map = new google.maps.Map(element, config);
     this.Marker = google.maps.Marker;
@@ -49,3 +49,5 @@ export default class GoogleMaps {
     paths.map((path) => this.map.data.remove(path));
   }
 }
+
+module.exports = GoogleMaps;

@@ -1,4 +1,4 @@
-export default class App {
+class App {
   constructor(map, layouts) {
     this.map = map;
     this.layouts = layouts;
@@ -32,3 +32,5 @@ export default class App {
     layout.render();
   }
 }
+
+module.exports = App;

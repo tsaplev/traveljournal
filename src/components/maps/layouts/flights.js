@@ -1,6 +1,6 @@
-import BaseLayout from "./base";
+const BaseLayout = require("./base");
 
-export default class FlightsLayout extends BaseLayout {
+class FlightsLayout extends BaseLayout {
   constructor(style, title, data) {
     super(style, title);
     this.markers = [];
@@ -32,3 +32,5 @@ export default class FlightsLayout extends BaseLayout {
     );
   }
 }
+
+module.exports = FlightsLayout;

@@ -1,6 +1,6 @@
-import BaseLayout from "./base";
+const BaseLayout = require("./base");
 
-export default class CitiesLayout extends BaseLayout {
+class CitiesLayout extends BaseLayout {
   constructor(style, title, data) {
     super(style, title);
     this.markers = [];
@@ -19,3 +19,5 @@ export default class CitiesLayout extends BaseLayout {
     this.markers.forEach((marker) => marker.setMap(null));
   }
 }
+
+module.exports = CitiesLayout;
