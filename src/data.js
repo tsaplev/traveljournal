@@ -1,15 +1,28 @@
-const {
-  getTrips,
-  getCitiesAsList,
-  getTripsByCountry,
-} = require("./fetchers/trips");
+const { getTrips, getTripsByCountry } = require("./fetchers/trips");
 const { getFlights } = require("./fetchers/flights");
+const { formatDate } = require("./fetchers/utils");
 const config = require("./config");
 const { databasePath, commonInfo } = config;
 const Database = require("./fetchers/db");
 
 function generateShareData(data) {
   return `<script>window.shareData = ${JSON.stringify(data)};</script>`;
+}
+
+function getCitiesAsList(trips) {
+  Object.keys(trips)
+    .reverse()
+    .map((year) => {
+      trips[year] = trips[year].map((trip) => {
+        return {
+          country: trip.country_flag ? trip.country_flag : trip.country_code,
+          city: trip.city,
+          date: formatDate(trip.arrival, trip.departure),
+        };
+      });
+    });
+
+  return trips;
 }
 
 async function getHtmlForCountries(countries) {

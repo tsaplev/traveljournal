@@ -1,4 +1,4 @@
-const { getTrips, getCitiesAsList, getTripsByCountry } = require("./trips");
+const { getTrips, getTripsByCountry } = require("./trips");
 const fixtures = require("./__fixtures__/trips");
 const { matchers } = require("jest-json-schema");
 
@@ -30,27 +30,6 @@ describe("Fetch data from database", () => {
               "country_code",
               "country_flag",
             ],
-          },
-        },
-      },
-      additionalProperties: false,
-    });
-  });
-
-  test("get cities as list", async () => {
-    db.getAllRows = jest.fn().mockResolvedValue(fixtures.trips);
-    const visitedCities = await getTrips(db);
-
-    const cities = await getCitiesAsList(visitedCities);
-
-    expect(cities).toMatchSchema({
-      type: "object",
-      patternProperties: {
-        "^[12][0-9]{3}$": {
-          type: "array",
-          items: {
-            type: "object",
-            required: ["country", "city", "date"],
           },
         },
       },

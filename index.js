@@ -1,10 +1,6 @@
 const Database = require("./src/fetchers/db");
 
-const {
-  getTrips,
-  getCitiesAsList,
-  getTripsByCountry,
-} = require("./src/fetchers/trips");
+const { getTrips, getTripsByCountry } = require("./src/fetchers/trips");
 const { getFlights } = require("./src/fetchers/flights");
 const { formatDate } = require("./src/fetchers/utils");
 
@@ -16,7 +12,6 @@ const FlightsLayout = require("./src/components/maps/layouts/flights");
 module.exports = {
   Database,
   getTrips,
-  getCitiesAsList,
   getTripsByCountry,
   getFlights,
   formatDate,

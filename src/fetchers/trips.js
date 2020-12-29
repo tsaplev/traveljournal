@@ -1,5 +1,3 @@
-const { formatDate } = require("./utils");
-
 async function getTrips(db) {
   let trips = await db.getAllRows(`
     SELECT
@@ -31,22 +29,6 @@ async function getTrips(db) {
   return trips;
 }
 
-function getCitiesAsList(trips) {
-  Object.keys(trips)
-    .reverse()
-    .map((year) => {
-      trips[year] = trips[year].map((trip) => {
-        return {
-          country: trip.country_flag ? trip.country_flag : trip.country_code,
-          city: trip.city,
-          date: formatDate(trip.arrival, trip.departure),
-        };
-      });
-    });
-
-  return trips;
-}
-
 async function getTripsByCountry(db) {
   const countries = await db.getAllRows(`
     SELECT 
@@ -68,6 +50,5 @@ async function getTripsByCountry(db) {
 
 module.exports = {
   getTrips,
-  getCitiesAsList,
   getTripsByCountry,
 };
