@@ -39,7 +39,6 @@ describe("Fetch data from database", () => {
 
   test("get cities as list", async () => {
     db.getAllRows = jest.fn().mockResolvedValue(fixtures.trips);
-
     const visitedCities = await getTrips(db);
 
     const cities = await getCitiesAsList(visitedCities);
