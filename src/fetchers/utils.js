@@ -13,7 +13,7 @@ const monthNames = [
   "December",
 ];
 
-function formatDate(arrival, departure) {
+function formatDate(arrival, departure, months = monthNames) {
   arrival = new Date(arrival);
   const arrivalDay = arrival.getDate();
   const arrivalMonth = arrival.getMonth();
@@ -28,26 +28,22 @@ function formatDate(arrival, departure) {
   if (arrivalYear === departureYear) {
     if (arrivalMonth === departureMonth) {
       if (arrivalDay === departureDay) {
-        date = `${monthNames[arrivalMonth]} ${arrivalDay}`; // Feb 8
+        date = `${months[arrivalMonth]} ${arrivalDay}`; // Feb 8
       } else {
-        date = `${monthNames[arrivalMonth]} ${arrivalDay} - ${departureDay}`; // Feb 1 - 3
+        date = `${months[arrivalMonth]} ${arrivalDay} - ${departureDay}`; // Feb 1 - 3
       }
     } else {
-      date = `${monthNames[arrivalMonth]} ${arrivalDay} - ${monthNames[departureMonth]} ${departureDay}`; // Jan 18 — Feb 3
+      date = `${months[arrivalMonth]} ${arrivalDay} - ${months[departureMonth]} ${departureDay}`; // Jan 18 — Feb 3
     }
   } else {
     if (Math.floor((departure - arrival) / 86400000) >= 365) {
-      date = `${monthNames[arrivalMonth]} ${arrivalDay} ${arrivalYear} - ${monthNames[departureMonth]} ${departureDay} ${departureYear}`; // Jun 14 2018 — Feb 5 2020
+      date = `${months[arrivalMonth]} ${arrivalDay} ${arrivalYear} - ${months[departureMonth]} ${departureDay} ${departureYear}`; // Jun 14 2018 — Feb 5 2020
     } else {
-      date = `${monthNames[arrivalMonth]} ${arrivalDay} - ${monthNames[departureMonth]} ${departureDay}`; // Dec 30 - Jan 15
+      date = `${months[arrivalMonth]} ${arrivalDay} - ${months[departureMonth]} ${departureDay}`; // Dec 30 - Jan 15
     }
   }
 
   return date;
 }
 
-function generateShareData(data) {
-  return `<script>window.shareData = ${JSON.stringify(data)};</script>`;
-}
-
-module.exports = { formatDate, generateShareData };
+module.exports = { formatDate };

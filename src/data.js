@@ -1,9 +1,16 @@
-const { getTrips, getCitiesAsList, getTripsByCountry } = require("./trips");
-const { generateShareData } = require("./utils");
-const { getFlights } = require("./flights");
-const config = require("../config");
+const {
+  getTrips,
+  getCitiesAsList,
+  getTripsByCountry,
+} = require("./fetchers/trips");
+const { getFlights } = require("./fetchers/flights");
+const config = require("./config");
 const { databasePath, commonInfo } = config;
-const Database = require("./db");
+const Database = require("./fetchers/db");
+
+function generateShareData(data) {
+  return `<script>window.shareData = ${JSON.stringify(data)};</script>`;
+}
 
 async function getHtmlForCountries(countries) {
   const html = countries.reduce((output, country) => {

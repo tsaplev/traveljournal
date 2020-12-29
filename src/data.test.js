@@ -3,8 +3,8 @@ const { matchers } = require("jest-json-schema");
 
 expect.extend(matchers);
 
-jest.mock("./trips");
-jest.mock("./flights");
+jest.mock("./fetchers/trips");
+jest.mock("./fetchers/flights");
 
 describe("Fetch data from all sources", () => {
   test("collect data for the main template", async () => {
