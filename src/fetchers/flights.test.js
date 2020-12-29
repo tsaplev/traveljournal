@@ -1,11 +1,11 @@
-const { getAllFlights } = require("./flights");
+const { getFlights } = require("./flights");
 const { matchers } = require("jest-json-schema");
 
 expect.extend(matchers);
 
 describe("Fetching flights data", () => {
   test("fetch data from myflightradar", async () => {
-    const flightsData = await getAllFlights("tsaplev");
+    const flightsData = await getFlights("tsaplev");
 
     expect(flightsData).toMatchSchema({
       type: "object",

@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const getAllFlights = async (username) => {
+async function getFlights(username) {
   const { data: html } = await axios.get(
     `https://my.flightradar24.com/${username}`
   );
@@ -11,6 +11,6 @@ const getAllFlights = async (username) => {
     result[key] = JSON.parse(htmlObject.replace(/&quot;/g, '"'));
     return result;
   }, {});
-};
+}
 
-module.exports = { getAllFlights };
+module.exports = { getFlights };

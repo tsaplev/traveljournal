@@ -1,6 +1,6 @@
 const sqlite3 = require("sqlite3").verbose();
 
-module.exports = class Database {
+class Database {
   constructor(path) {
     this.db = new sqlite3.Database(path);
   }
@@ -18,4 +18,6 @@ module.exports = class Database {
       });
     });
   }
-};
+}
+
+module.exports = Database;

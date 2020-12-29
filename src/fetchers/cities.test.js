@@ -1,8 +1,4 @@
-const {
-  getAllVisitedCities,
-  getCitiesAsList,
-  getListOfCitiesSortedByCountry,
-} = require("./cities");
+const { getTrips, getCitiesAsList, getTripsByCountry } = require("./cities");
 const fixtures = require("./__fixtures__/cities");
 const { matchers } = require("jest-json-schema");
 
@@ -15,7 +11,7 @@ describe("Fetch data from database", () => {
   test("get all visited cities", async () => {
     queryAllRows.mockResolvedValue(fixtures.visits);
 
-    const tripsByYear = await getAllVisitedCities();
+    const tripsByYear = await getTrips();
 
     expect(tripsByYear).toMatchSchema({
       type: "object",
@@ -44,7 +40,7 @@ describe("Fetch data from database", () => {
 
   test("get cities as list", async () => {
     queryAllRows.mockResolvedValue(fixtures.visits);
-    const visitedCities = await getAllVisitedCities();
+    const visitedCities = await getTrips();
 
     const cities = await getCitiesAsList(visitedCities);
 
@@ -66,7 +62,7 @@ describe("Fetch data from database", () => {
   test("get list of cities sorted by country", async () => {
     queryAllRows.mockResolvedValue(fixtures.countries);
 
-    const countries = await getListOfCitiesSortedByCountry();
+    const countries = await getTripsByCountry();
 
     expect(countries).toMatchSchema({
       type: "array",

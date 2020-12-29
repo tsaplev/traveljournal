@@ -13,7 +13,7 @@ const monthNames = [
   "December",
 ];
 
-const dateToHRString = (arrival, departure) => {
+function formatDate(arrival, departure) {
   arrival = new Date(arrival);
   const arrivalDay = arrival.getDate();
   const arrivalMonth = arrival.getMonth();
@@ -44,10 +44,10 @@ const dateToHRString = (arrival, departure) => {
   }
 
   return date;
-};
+}
 
-const generateShareData = (data) => {
+function generateShareData(data) {
   return `<script>window.shareData = ${JSON.stringify(data)};</script>`;
-};
+}
 
-module.exports = { dateToHRString, generateShareData };
+module.exports = { formatDate, generateShareData };

@@ -4,18 +4,18 @@ const utils = require("../utils");
 
 jest.mock("../utils");
 
-const getAllVisitedCities = () => {
+const getTrips = () => {
   utils.queryAllRows.mockResolvedValue(fixtures.visits);
-  return cities.getAllVisitedCities();
+  return cities.getTrips();
 };
 
-const getListOfCitiesSortedByCountry = () => {
+const getTripsByCountry = () => {
   utils.queryAllRows.mockResolvedValue(fixtures.countries);
-  return cities.getListOfCitiesSortedByCountry();
+  return cities.getTripsByCountry();
 };
 
 module.exports = {
   ...cities,
-  getAllVisitedCities,
-  getListOfCitiesSortedByCountry,
+  getTrips,
+  getTripsByCountry,
 };

@@ -1,6 +1,6 @@
-const { dateToHRString } = require("./utils");
+const { formatDate } = require("./utils");
 
-const getAllVisitedCities = async (db) => {
+async function getTrips(db) {
   const query = `
     SELECT
     visit.id,
@@ -18,22 +18,22 @@ const getAllVisitedCities = async (db) => {
     ORDER BY date(visit.arrival) ASC
   `;
 
-  let visits = await db.getAllRows(query);
+  let trips = await db.getAllRows(query);
 
-  visits = visits.reduce((result, visit) => {
-    const currentYear = new Date(visit.arrival).getFullYear();
+  trips = trips.reduce((result, trip) => {
+    const currentYear = new Date(trip.arrival).getFullYear();
     if (!result[currentYear]) {
       result[currentYear] = [];
     }
-    result[currentYear].push(visit);
+    result[currentYear].push(trip);
 
     return result;
   }, {});
 
-  return visits;
-};
+  return trips;
+}
 
-const getCitiesAsList = (visits) => {
+function getCitiesAsList(visits) {
   Object.keys(visits)
     .reverse()
     .map((year) => {
@@ -41,15 +41,15 @@ const getCitiesAsList = (visits) => {
         return {
           country: trip.country_flag ? trip.country_flag : trip.country_code,
           city: trip.city,
-          date: dateToHRString(trip.arrival, trip.departure),
+          date: formatDate(trip.arrival, trip.departure),
         };
       });
     });
 
   return visits;
-};
+}
 
-const getListOfCitiesSortedByCountry = async (db) => {
+async function getTripsByCountry(db) {
   const query = `
     SELECT 
     country.flag,
@@ -61,17 +61,17 @@ const getListOfCitiesSortedByCountry = async (db) => {
     ORDER BY country.name
   `;
 
-  let countries = await db.getAllRows(query);
+  const countries = await db.getAllRows(query);
 
   countries.map((country) => {
     country.cities = country.cities.split(",").sort().join(", ");
   });
 
   return countries;
-};
+}
 
 module.exports = {
-  getAllVisitedCities,
+  getTrips,
   getCitiesAsList,
-  getListOfCitiesSortedByCountry,
+  getTripsByCountry,
 };

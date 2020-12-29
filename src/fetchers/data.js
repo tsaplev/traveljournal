@@ -1,15 +1,11 @@
-const {
-  getAllVisitedCities,
-  getCitiesAsList,
-  getListOfCitiesSortedByCountry,
-} = require("./cities");
+const { getTrips, getCitiesAsList, getTripsByCountry } = require("./cities");
 const { generateShareData } = require("./utils");
-const { getAllFlights } = require("./flights");
+const { getFlights } = require("./flights");
 const config = require("../config");
 const { databasePath, commonInfo } = config;
 const Database = require("./db");
 
-const getHtmlForCountries = async (countries) => {
+async function getHtmlForCountries(countries) {
   const html = countries.reduce((output, country) => {
     output += `
     <ul class="countries-list">
@@ -22,9 +18,9 @@ const getHtmlForCountries = async (countries) => {
   }, "");
 
   return html;
-};
+}
 
-const getHtmlForVists = async (visits) => {
+async function getHtmlForVists(visits) {
   const html = Object.keys(visits)
     .reverse()
     .reduce((output, year) => {
@@ -39,14 +35,14 @@ const getHtmlForVists = async (visits) => {
     }, "");
 
   return html;
-};
+}
 
-const getHtmlData = async () => {
+async function getHtmlData() {
   const db = new Database(databasePath);
 
-  const cities = await getAllVisitedCities(db);
-  const countries = await getListOfCitiesSortedByCountry(db);
-  const flights = await getAllFlights("tsaplev");
+  const cities = await getTrips(db);
+  const countries = await getTripsByCountry(db);
+  const flights = await getFlights("tsaplev");
 
   const countriesLayout = await getHtmlForCountries(countries);
   const visits = await getHtmlForVists(getCitiesAsList({ ...cities }));
@@ -58,6 +54,6 @@ const getHtmlData = async () => {
     countries: countriesLayout,
     visits,
   };
-};
+}
 
 module.exports = { getHtmlData };

@@ -1,4 +1,4 @@
-const { dateToHRString } = require("./utils");
+const { formatDate } = require("./utils");
 
 describe("Utils work properly", () => {
   test.each([
@@ -10,7 +10,7 @@ describe("Utils work properly", () => {
   ])(
     "convert date to human readable string",
     (arrival, departure, expected) => {
-      expect(dateToHRString(arrival, departure)).toBe(expected);
+      expect(formatDate(arrival, departure)).toBe(expected);
     }
   );
 });
