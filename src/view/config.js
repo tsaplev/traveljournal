@@ -6,7 +6,7 @@ const commonInfo = {
   flightradarUsername: "",
 };
 
-const databasePath = `${__dirname}/../db.sqlite3`;
+const databasePath = `${__dirname}/../../db.sqlite3`;
 
 const selectorsTitles = {
   citiesSelectorTitle: "📍Cities",

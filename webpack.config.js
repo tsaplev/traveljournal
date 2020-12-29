@@ -4,7 +4,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const { getHtmlData } = require("./src/data");
+const { getHtmlData } = require("./src/view/data");
 
 module.exports = async (env) => {
   const htmlData =
@@ -12,7 +12,7 @@ module.exports = async (env) => {
 
   return {
     entry: {
-      main: [path.resolve(__dirname, "src/index.js")],
+      main: [path.resolve(__dirname, "src/view/index.js")],
     },
     output: {
       filename: "[name].[chunkhash].js",
@@ -26,7 +26,7 @@ module.exports = async (env) => {
     plugins: [
       new HtmlWebpackPlugin({
         minify: true,
-        template: "src/index.html",
+        template: "src/view/template.html",
         ...htmlData,
       }),
       new MiniCssExtractPlugin({

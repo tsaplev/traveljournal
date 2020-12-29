@@ -1,12 +1,12 @@
-const App = require("./components/app/index");
+const App = require("../components/app/index");
 
-const GoogleMaps = require("./components/maps/index");
-const CitiesLayout = require("./components/maps/layouts/cities");
-const FlightsLayout = require("./components/maps/layouts/flights");
+const GoogleMaps = require("../components/maps/index");
+const CitiesLayout = require("../components/maps/layouts/cities");
+const FlightsLayout = require("../components/maps/layouts/flights");
 
 const { googleMapConfig, selectorsTitles } = require("./config");
 
-require("./index.css");
+require("./style.css");
 
 document.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelector("div.filters-box");
