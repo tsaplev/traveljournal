@@ -1,7 +1,7 @@
 const { formatDate } = require("./utils");
 
 async function getTrips(db) {
-  const query = `
+  let trips = await db.getAllRows(`
     SELECT
     visit.id,
     visit.arrival,
@@ -16,9 +16,7 @@ async function getTrips(db) {
     INNER JOIN city ON city.id = visit.city_id
     INNER JOIN country ON city.country_id = country.id
     ORDER BY date(visit.arrival) ASC
-  `;
-
-  let trips = await db.getAllRows(query);
+  `);
 
   trips = trips.reduce((result, trip) => {
     const currentYear = new Date(trip.arrival).getFullYear();
@@ -50,7 +48,7 @@ function getCitiesAsList(trips) {
 }
 
 async function getTripsByCountry(db) {
-  const query = `
+  const countries = await db.getAllRows(`
     SELECT 
     country.flag,
     country.name,
@@ -59,9 +57,7 @@ async function getTripsByCountry(db) {
     INNER JOIN city ON country.id = city.country_id
     GROUP BY country.id
     ORDER BY country.name
-  `;
-
-  const countries = await db.getAllRows(query);
+  `);
 
   countries.map((country) => {
     country.cities = country.cities.split(",").sort().join(", ");
