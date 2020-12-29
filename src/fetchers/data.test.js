@@ -3,7 +3,7 @@ const { matchers } = require("jest-json-schema");
 
 expect.extend(matchers);
 
-jest.mock("./cities");
+jest.mock("./trips");
 jest.mock("./flights");
 
 describe("Fetch data from all sources", () => {
@@ -20,11 +20,11 @@ describe("Fetch data from all sources", () => {
         "flightradarUsername",
         "shareData",
         "countries",
-        "visits",
+        "trips",
       ],
     });
     expect(data.countries).toMatchSnapshot();
-    expect(data.visits).toMatchSnapshot();
+    expect(data.trips).toMatchSnapshot();
     expect(data.shareData).toEqual(
       expect.stringMatching(/<script>window\.shareData = {(.*)};<\/script>/)
     );

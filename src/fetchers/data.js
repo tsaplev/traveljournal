@@ -1,4 +1,4 @@
-const { getTrips, getCitiesAsList, getTripsByCountry } = require("./cities");
+const { getTrips, getCitiesAsList, getTripsByCountry } = require("./trips");
 const { generateShareData } = require("./utils");
 const { getFlights } = require("./flights");
 const config = require("../config");
@@ -20,13 +20,13 @@ async function getHtmlForCountries(countries) {
   return html;
 }
 
-async function getHtmlForVists(visits) {
-  const html = Object.keys(visits)
+async function getHtmlForVists(trips) {
+  const html = Object.keys(trips)
     .reverse()
     .reduce((output, year) => {
-      const trips = visits[year];
+      const _trips = trips[year];
       output += `<p><strong class="year">${year}</strong><br>`;
-      output += trips.reduce((output, trip) => {
+      output += _trips.reduce((output, trip) => {
         output += `<span class='log'>${trip.country} ${trip.city} <span class='time'>${trip.date}</span></span><br>`;
         return output;
       }, "");
@@ -45,14 +45,14 @@ async function getHtmlData() {
   const flights = await getFlights("tsaplev");
 
   const countriesLayout = await getHtmlForCountries(countries);
-  const visits = await getHtmlForVists(getCitiesAsList({ ...cities }));
+  const trips = await getHtmlForVists(getCitiesAsList({ ...cities }));
   const shareData = generateShareData({ cities, flights });
 
   return {
     ...commonInfo,
     shareData,
     countries: countriesLayout,
-    visits,
+    trips,
   };
 }
 

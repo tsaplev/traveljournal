@@ -33,11 +33,11 @@ async function getTrips(db) {
   return trips;
 }
 
-function getCitiesAsList(visits) {
-  Object.keys(visits)
+function getCitiesAsList(trips) {
+  Object.keys(trips)
     .reverse()
     .map((year) => {
-      visits[year] = visits[year].map((trip) => {
+      trips[year] = trips[year].map((trip) => {
         return {
           country: trip.country_flag ? trip.country_flag : trip.country_code,
           city: trip.city,
@@ -46,7 +46,7 @@ function getCitiesAsList(visits) {
       });
     });
 
-  return visits;
+  return trips;
 }
 
 async function getTripsByCountry(db) {

@@ -87,14 +87,14 @@ body {
   font-size: 13px;
   color: #7a9199;
 }
-.travel-post {
+.travel-list {
   padding-right: 0;
   padding-bottom: 10px;
 }
-.travel-post__body {
+.travel-list__body {
   margin-top: 0;
 }
-.travel-post__body > :not(:first-child) {
+.travel-list__body > :not(:first-child) {
   display: none;
 }
 

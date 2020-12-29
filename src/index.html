@@ -20,21 +20,21 @@
           <div class="map">
             <div id="travel-map"></div>
           </div>
-          <article class="travel-post">
+          <article class="travel-list">
             <div class="filters">
               <div class="filters-box__label">List of</div>
               <div class="filters-box">
                 <div class="filters-box__item _active" data-content="countries-list">
                   countries
                 </div>
-                <div class="filters-box__item" data-content="visits-list">
+                <div class="filters-box__item" data-content="trips-list">
                   trips
                 </div>
               </div>
             </div>
-            <div class="travel-post__body">
+            <div class="travel-list__body">
               <ol class="countries-list"><%= htmlWebpackPlugin.options.countries %></ol>
-              <div class="visits-list"><%= htmlWebpackPlugin.options.visits %></div>
+              <div class="trips-list"><%= htmlWebpackPlugin.options.trips %></div>
             </div>
           </article>
         </article>

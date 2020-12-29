@@ -1,4 +1,4 @@
-const visits = [
+const trips = [
   {
     id: 1,
     arrival: "1995-05-10",
@@ -51,4 +51,4 @@ const countries = [
   { flag: "🇺🇸", name: "United States of America", cities: "New York" },
 ];
 
-module.exports = { visits, countries };
+module.exports = { trips, countries };

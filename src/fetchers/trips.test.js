@@ -1,5 +1,5 @@
-const { getTrips, getCitiesAsList, getTripsByCountry } = require("./cities");
-const fixtures = require("./__fixtures__/cities");
+const { getTrips, getCitiesAsList, getTripsByCountry } = require("./trips");
+const fixtures = require("./__fixtures__/trips");
 const { matchers } = require("jest-json-schema");
 
 expect.extend(matchers);
@@ -8,7 +8,7 @@ const db = require("./db");
 
 describe("Fetch data from database", () => {
   test("get all visited cities", async () => {
-    db.getAllRows = jest.fn().mockResolvedValue(fixtures.visits);
+    db.getAllRows = jest.fn().mockResolvedValue(fixtures.trips);
 
     const tripsByYear = await getTrips(db);
 
@@ -38,7 +38,7 @@ describe("Fetch data from database", () => {
   });
 
   test("get cities as list", async () => {
-    db.getAllRows = jest.fn().mockResolvedValue(fixtures.visits);
+    db.getAllRows = jest.fn().mockResolvedValue(fixtures.trips);
 
     const visitedCities = await getTrips(db);
 
