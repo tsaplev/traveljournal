@@ -1,17 +1,16 @@
 const cities = jest.requireActual("../cities");
 const fixtures = require("../__fixtures__/cities");
-const utils = require("../utils");
 
-jest.mock("../utils");
+const db = require("../db");
 
 const getTrips = () => {
-  utils.queryAllRows.mockResolvedValue(fixtures.visits);
-  return cities.getTrips();
+  db.getAllRows = jest.fn().mockResolvedValue(fixtures.visits);
+  return cities.getTrips(db);
 };
 
 const getTripsByCountry = () => {
-  utils.queryAllRows.mockResolvedValue(fixtures.countries);
-  return cities.getTripsByCountry();
+  db.getAllRows = jest.fn().mockResolvedValue(fixtures.countries);
+  return cities.getTripsByCountry(db);
 };
 
 module.exports = {
