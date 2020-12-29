@@ -1,8 +1,8 @@
-const Database = require("./src/fetchers/db");
+const Database = require("./src/models/db");
 
-const { getTrips, getTripsByCountry } = require("./src/fetchers/trips");
-const { getFlights } = require("./src/fetchers/flights");
-const { formatDate } = require("./src/fetchers/utils");
+const { getTrips, getTripsByCountry } = require("./src/models/trips");
+const { getFlights } = require("./src/models/flights");
+const { formatDate } = require("./src/models/utils");
 
 const App = require("./src/components/app/index");
 const GoogleMaps = require("./src/components/maps/index");

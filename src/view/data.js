@@ -1,9 +1,9 @@
-const { getTrips, getTripsByCountry } = require("../fetchers/trips");
-const { getFlights } = require("../fetchers/flights");
-const { formatDate } = require("../fetchers/utils");
+const { getTrips, getTripsByCountry } = require("../models/trips");
+const { getFlights } = require("../models/flights");
+const { formatDate } = require("../models/utils");
 const config = require("./config");
 const { databasePath, commonInfo } = config;
-const Database = require("../fetchers/db");
+const Database = require("../models/db");
 
 function generateShareData(data) {
   return `<script>window.shareData = ${JSON.stringify(data)};</script>`;
