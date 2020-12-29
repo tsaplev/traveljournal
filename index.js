@@ -1,4 +1,4 @@
-const Database = require("./src/db");
+const Database = require("./src/fetchers/db");
 
 const { getTrips, getTripsByCountry } = require("./src/fetchers/trips");
 const { getFlights } = require("./src/fetchers/flights");
