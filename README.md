@@ -16,11 +16,17 @@
 
 ## Demo mode
 
-You can try app without making any effort.
+Demo of latest version is available on [https://tsaplev.github.io/travelmap/](https://tsaplev.github.io/travelmap/).
 
-```sh
-yarn start:demo
-```
+You can also try app locally without making any effort.
+
+1. Create build.
+
+   ```sh
+   yarn build:demo
+   ```
+
+2. Open `dist/index.html` in browser.
 
 ## Getting Started
 
