@@ -30,7 +30,7 @@ yarn start:demo
 
 Use any software you like to fill in SQLite database [db.sqlite3](./db.sqlite3) with the following table sequence: `continent`, `country`, `city`, `trip`.
 
-![travelmap](./dbschema.jpg)
+![travelmap](./dbschema.png)
 
 ### Complete flightradar profile
 

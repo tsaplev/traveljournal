@@ -1,19 +1,19 @@
 async function getTrips(db) {
   let trips = await db.getAllRows(`
     SELECT
-    visit.id,
-    visit.arrival,
-    visit.departure,
+    trip.id,
+    trip.arrival,
+    trip.departure,
     city.name as city,
     city.lat,
     city.lon,
     country.name as country,
     country.code as country_code,
     country.flag as country_flag
-    FROM visit
-    INNER JOIN city ON city.id = visit.city_id
+    FROM trip
+    INNER JOIN city ON city.id = trip.city_id
     INNER JOIN country ON city.country_id = country.id
-    ORDER BY date(visit.arrival) ASC
+    ORDER BY date(trip.arrival) ASC
   `);
 
   trips = trips.reduce((result, trip) => {
