@@ -38,7 +38,7 @@ App uses [my.flightradar24.com](https://my.flightradar24.com) as the main source
 
 ### Set up configuration file
 
-Update [config.js](src/config.js) with your own credentials.
+Update [config.js](src/view/config.js) with your own credentials.
 
 | Key                 | Description                                                                                   |
 | ------------------- | --------------------------------------------------------------------------------------------- |
@@ -46,7 +46,7 @@ Update [config.js](src/config.js) with your own credentials.
 | title               | Write your name there                                                                         |
 | subTitle            | Short text under the name                                                                     |
 | googleMapApiKey     | [Google Map API Key](https://developers.google.com/maps/documentation/javascript/get-api-key) |
-| flightradarUsername | Username on my.flightradar24.com                                                              |
+| flightradarUsername | Username on [my.flightradar24.com ](https://my.flightradar24.com/)                            |
 
 ### Install dependencies
 
