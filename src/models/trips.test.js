@@ -1,10 +1,11 @@
 const { getTrips, getTripsByCountry } = require("./trips");
 const fixtures = require("./__fixtures__/trips");
 const { matchers } = require("jest-json-schema");
+const Database = require("./db");
 
 expect.extend(matchers);
 
-const db = require("./db");
+const db = new Database();
 
 describe("Fetch data from database", () => {
   test("get all visited cities", async () => {

@@ -1,7 +1,8 @@
 const trips = jest.requireActual("../trips");
 const fixtures = require("../__fixtures__/trips");
+const Database = require("../db");
 
-const db = require("../db");
+const db = new Database();
 
 const getTrips = () => {
   db.getAllRows = jest.fn().mockResolvedValue(fixtures.trips);
