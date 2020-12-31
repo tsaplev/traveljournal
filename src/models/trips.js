@@ -48,7 +48,15 @@ async function getTripsByCountry(db) {
   return countries;
 }
 
+async function getVisitedCities(db) {
+  let cities = await db.getAllRows(`SELECT lat, lon FROM city`);
+  cities = cities.map((city) => [city.lat, city.lon]);
+
+  return cities;
+}
+
 module.exports = {
   getTrips,
   getTripsByCountry,
+  getVisitedCities,
 };

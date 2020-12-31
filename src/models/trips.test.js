@@ -1,4 +1,4 @@
-const { getTrips, getTripsByCountry } = require("./trips");
+const { getTrips, getTripsByCountry, getVisitedCities } = require("./trips");
 const fixtures = require("./__fixtures__/trips");
 const { matchers } = require("jest-json-schema");
 const Database = require("./db");
@@ -54,6 +54,22 @@ describe("Fetch data from database", () => {
             not: { pattern: "(,(?=S)|:)" },
           },
         },
+      },
+    });
+  });
+
+  test("get coordinates of all visited cities", async () => {
+    db.getAllRows = jest.fn().mockResolvedValue(fixtures.cities);
+
+    const cities = await getVisitedCities(db);
+
+    expect(cities).toMatchSchema({
+      type: "array",
+      items: {
+        type: "array",
+        contains: { type: "number" },
+        minItems: 2,
+        maxItems: 2,
       },
     });
   });

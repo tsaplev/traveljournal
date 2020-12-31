@@ -51,4 +51,10 @@ const countries = [
   { flag: "🇺🇸", name: "United States of America", cities: "New York" },
 ];
 
-module.exports = { trips, countries };
+const cities = [
+  { lat: 43.1198091, lon: 131.8869243 },
+  { lat: 56.1167663, lon: 47.262782 },
+  { lat: 44.8857008, lon: 37.3199192 },
+];
+
+module.exports = { trips, cities, countries };

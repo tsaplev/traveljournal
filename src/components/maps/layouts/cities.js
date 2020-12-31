@@ -8,10 +8,9 @@ class CitiesLayout extends BaseLayout {
   }
 
   render() {
-    this.points.forEach((chunk) => {
-      chunk.forEach((point) =>
-        this.markers.push(this.map.renderMarker(point.lat, point.lon))
-      );
+    this.points.forEach((point) => {
+      const [lat, lon] = point;
+      this.markers.push(this.map.renderMarker(lat, lon));
     });
   }
 

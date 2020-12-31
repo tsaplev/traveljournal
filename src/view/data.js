@@ -1,4 +1,8 @@
-const { getTrips, getTripsByCountry } = require("../models/trips");
+const {
+  getTrips,
+  getTripsByCountry,
+  getVisitedCities,
+} = require("../models/trips");
 const { getFlights } = require("../models/flights");
 const { formatDate } = require("../models/utils");
 const config = require("./config");
@@ -60,19 +64,21 @@ async function getHtmlForVists(trips) {
 async function getHtmlData() {
   const db = new Database(databasePath);
 
-  const cities = await getTrips(db);
+  const trips = await getTrips(db);
+  const cities = await getVisitedCities(db);
   const countries = await getTripsByCountry(db);
   const flights = await getFlights("tsaplev");
 
   const countriesLayout = await getHtmlForCountries(countries);
-  const trips = await getHtmlForVists(getCitiesAsList({ ...cities }));
+  const tripsList = await getHtmlForVists(getCitiesAsList({ ...trips }));
   const shareData = generateShareData({ cities, flights });
 
   return {
     ...commonInfo,
     shareData,
+    cities: cities,
     countries: countriesLayout,
-    trips,
+    trips: tripsList,
   };
 }
 
