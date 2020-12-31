@@ -14,8 +14,14 @@ const getTripsByCountry = () => {
   return trips.getTripsByCountry(db);
 };
 
+const getVisitedCities = () => {
+  db.getAllRows = jest.fn().mockResolvedValue(fixtures.cities);
+  return trips.getVisitedCities(db);
+};
+
 module.exports = {
   ...trips,
   getTrips,
   getTripsByCountry,
+  getVisitedCities,
 };
