@@ -9,6 +9,9 @@ async function getFlights(username) {
     const regExp = new RegExp(`data-${key}="(.*?)"`, "g");
     const htmlObject = [...html.matchAll(regExp)][0][1];
     result[key] = JSON.parse(htmlObject.replace(/&quot;/g, '"'));
+    if (key === "points") {
+      result[key] = result[key].map((point) => [point.lat, point.lon]);
+    }
     return result;
   }, {});
 }

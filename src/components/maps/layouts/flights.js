@@ -5,15 +5,16 @@ class FlightsLayout extends BaseLayout {
     super(style, title);
     this.markers = [];
     this.polylines = [];
-    this.citiesPoints = data.points;
-    this.flightPaths = data.paths;
+    this.airportsPoint = data.points;
+    this.flightsPath = data.paths;
   }
 
   render() {
-    this.citiesPoints.forEach((point) => {
-      this.markers.push(this.map.renderMarker(point.lat, point.lon));
+    this.airportsPoint.forEach((point) => {
+      this.markers.push(this.map.renderMarker(point[0], point[1]));
     });
-    this.flightPaths.forEach((path) =>
+
+    this.flightsPath.forEach((path) =>
       this.polylines.push(
         this.map.renderPolyline(
           [

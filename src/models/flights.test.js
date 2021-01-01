@@ -16,9 +16,10 @@ describe("Fetching flights data", () => {
           type: "array",
           minItems: 1,
           items: {
-            type: "object",
-            required: ["lat", "lon"],
-            additionalProperties: true,
+            type: "array",
+            contains: { type: "string" },
+            minItems: 2,
+            maxItems: 2,
           },
         },
         paths: {
