@@ -16,7 +16,7 @@
 
 ## Demo mode
 
-Demo of latest version is available on [https://tsaplev.github.io/travelmap/](https://tsaplev.github.io/travelmap/).
+Demo of latest version is available at [https://tsaplev.github.io/travelmap](https://tsaplev.github.io/travelmap).
 
 You can also try app locally without making any effort.
 
@@ -50,7 +50,6 @@ Update [config.js](src/view/config.js) with your own credentials.
 | ------------------- | --------------------------------------------------------------------------------------------- |
 | siteTitle           | The title that appears in browser tab                                                         |
 | title               | Write your name there                                                                         |
-| subTitle            | Short text under the name                                                                     |
 | googleMapApiKey     | [Google Map API Key](https://developers.google.com/maps/documentation/javascript/get-api-key) |
 | flightradarUsername | Username on [my.flightradar24.com ](https://my.flightradar24.com/)                            |
 
