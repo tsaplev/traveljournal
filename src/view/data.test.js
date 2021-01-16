@@ -15,7 +15,6 @@ describe("Fetch data from all sources", () => {
       required: [
         "siteTitle",
         "title",
-        "subTitle",
         "googleMapApiKey",
         "flightradarUsername",
         "shareData",

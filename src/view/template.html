@@ -10,12 +10,15 @@
   <body>
     <div class="container">
       <header class="header">
-        <h1 class="header__title">
-          <a class="header__link" href="/"><%= htmlWebpackPlugin.options.title %></a>
-        </h1>
-        <h2 class="header__subtitle"><%= htmlWebpackPlugin.options.subTitle %></h2>
+        <div class="header-box">
+          <h1 class="header__title">
+            <a class="header__link" href="/"><%= htmlWebpackPlugin.options.title %></a>
+          </h1>
+        </div>
+        <nav class="header__menu">
+        </nav>
       </header>
-      <div class="content">
+      <main class="content">
         <article class="travel-page">
           <div class="map">
             <div id="travel-map"></div>
@@ -38,7 +41,12 @@
             </div>
           </article>
         </article>
-      </div>
+      </main>
+      <footer class="footer">
+        <div class="footer-box">
+          <span>© <%= htmlWebpackPlugin.options.title %></span>
+        </div>
+      </footer>
     </div>
     <%= htmlWebpackPlugin.options.shareData %>
   </body>
