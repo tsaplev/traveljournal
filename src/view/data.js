@@ -51,7 +51,7 @@ async function getHtmlForVists(trips) {
       const _trips = trips[year];
       output += `<p><strong class="year">${year}</strong><br>`;
       output += _trips.reduce((output, trip) => {
-        output += `<span class='log'>${trip.country} ${trip.city} <span class='time'>${trip.date}</span></span><br>`;
+        output += `<span class='trip'>${trip.country} ${trip.city} <span class='time'>${trip.date}</span></span><br>`;
         return output;
       }, "");
       output += `</p>`;

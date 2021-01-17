@@ -1,7 +1,6 @@
 const commonInfo = {
   siteTitle: "",
   title: "",
-  subTitle: "",
   googleMapApiKey: "",
   flightradarUsername: "",
 };
