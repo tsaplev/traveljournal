@@ -1,10 +1,10 @@
-# TravelMap — track your travel history
+# Travel Journal — keep all your travel memories
 
-[![GitHub Actions](https://github.com/tsaplev/travelmap/workflows/CI/badge.svg)](https://github.com/tsaplev/travelmap/actions)
+[![GitHub Actions](https://github.com/tsaplev/TravelJournal/workflows/CI/badge.svg)](https://github.com/tsaplev/TravelJournal/actions)
 
 > App for tracking visited cities and flights
 
-![travelmap](./preview.jpg)
+![TravelJournal](./preview.jpg)
 
 ## Features
 
@@ -16,7 +16,7 @@
 
 ## Demo mode
 
-Demo of latest version is available at [https://tsaplev.github.io/travelmap](https://tsaplev.github.io/travelmap).
+Demo of latest version is available at [https://tsaplev.github.io/TravelJournal](https://tsaplev.github.io/TravelJournal).
 
 You can also try app locally without making any effort.
 
@@ -36,7 +36,7 @@ You can also try app locally without making any effort.
 
 Use any software you like to fill in SQLite database [db.sqlite3](./db.sqlite3) with the following table sequence: `continent`, `country`, `city`, `trip`.
 
-![travelmap](./dbschema.png)
+![TravelJournal](./dbschema.png)
 
 ### Complete flightradar profile
 
