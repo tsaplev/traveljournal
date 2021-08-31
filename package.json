@@ -1,5 +1,5 @@
 {
-  "name": "travelmap",
+  "name": "traveljournal",
   "version": "2.0.0",
   "description": "App for tracking visited cities and flights",
   "main": "index.js",
@@ -55,9 +55,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/tsaplev/travelmap"
+    "url": "https://github.com/tsaplev/traveljournal"
   },
   "bugs": {
-    "url": "https://github.com/tsaplev/travelmap/issues"
+    "url": "https://github.com/tsaplev/traveljournal/issues"
   }
 }
