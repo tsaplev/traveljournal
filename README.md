@@ -14,7 +14,7 @@
 - Switch between Cities Map and Flights Map
 - Keep all your data self-hosted
 
-## Demo mode
+## Demo Mode
 
 Demo of latest version is available at [https://tsaplev.github.io/TravelJournal](https://tsaplev.github.io/TravelJournal).
 
@@ -30,7 +30,7 @@ You can also try app locally without making any effort.
 
 ## Getting Started
 
-### Fill database with personal travels
+### Fill Database With Personal Travels
 
 > **NOTE**: _You are required to have basic understanding of relational databases._
 
@@ -38,11 +38,11 @@ Use any software you like to fill in SQLite database [db.sqlite3](./db.sqlite3) 
 
 ![TravelJournal](./dbschema.png)
 
-### Complete flightradar profile
+### Complete Flightradar Profile
 
 App uses [my.flightradar24.com](https://my.flightradar24.com) as the main source for flights data so sign up and complete your profile if you don't have one.
 
-### Set up configuration file
+### Set Up Configuration File
 
 Update [config.js](src/view/config.js) with your own credentials.
 
@@ -53,13 +53,13 @@ Update [config.js](src/view/config.js) with your own credentials.
 | googleMapApiKey     | [Google Map API Key](https://developers.google.com/maps/documentation/javascript/get-api-key) |
 | flightradarUsername | Username on [my.flightradar24.com ](https://my.flightradar24.com/)                            |
 
-### Install dependencies
+### Install Dependencies
 
 ```sh
 yarn install
 ```
 
-### Build app
+### Build App
 
 ```sh
 yarn build
