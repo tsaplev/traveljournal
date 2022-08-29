@@ -13,7 +13,22 @@ const monthNames = [
   "December",
 ];
 
-function formatDate(arrival, departure, months = monthNames) {
+const monthNamesRu = [
+  "январь",
+  "февраль",
+  "март",
+  "апрель",
+  "май",
+  "июнь",
+  "июль",
+  "август",
+  "сентябрь",
+  "октябрь",
+  "ноябрь",
+  "декабрь",
+];
+
+function formatDate(arrival, departure, months) {
   arrival = new Date(arrival);
   const arrivalDay = arrival.getDate();
   const arrivalMonth = arrival.getMonth();
@@ -46,4 +61,4 @@ function formatDate(arrival, departure, months = monthNames) {
   return date;
 }
 
-module.exports = { formatDate };
+module.exports = { formatDate, monthNames, monthNamesRu };

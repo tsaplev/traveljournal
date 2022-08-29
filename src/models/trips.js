@@ -1,13 +1,17 @@
-async function getTrips(db) {
+async function getTrips(db, lang = "") {
+  if (lang) {
+    lang = `_${lang}`;
+  }
+
   let trips = await db.getAllRows(`
     SELECT
     trip.id,
     trip.arrival,
     trip.departure,
-    city.name as city,
+    city.name${lang} as city,
     city.lat,
     city.lon,
-    country.name as country,
+    country.name${lang} as country,
     country.code as country_code,
     country.flag as country_flag
     FROM trip
@@ -29,16 +33,20 @@ async function getTrips(db) {
   return trips;
 }
 
-async function getTripsByCountry(db) {
+async function getTripsByCountry(db, lang = "") {
+  if (lang) {
+    lang = `_${lang}`;
+  }
+
   const countries = await db.getAllRows(`
     SELECT 
     country.flag,
-    country.name,
-    GROUP_CONCAT(city.name) as cities
+    country.name${lang} as name,
+    GROUP_CONCAT(city.name${lang}) as cities
     FROM country
     INNER JOIN city ON country.id = city.country_id
     GROUP BY country.id
-    ORDER BY country.name
+    ORDER BY name
   `);
 
   countries.map((country) => {

@@ -24,7 +24,7 @@ class GoogleMaps {
     return new this.Marker({
       map: this.map,
       position: new this.Position(lat, lng),
-      icon: { url: "assets/mapmarker.png", anchor: new this.Point(6, 23) },
+      icon: { url: "./assets/mapmarker.png", anchor: new this.Point(6, 23) },
     });
   }
 

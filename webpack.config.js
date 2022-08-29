@@ -9,6 +9,7 @@ const { getHtmlData } = require("./src/view/data");
 module.exports = async (env) => {
   const htmlData =
     env && env.demo ? require("./demo-data.json") : await getHtmlData();
+  const htmlDataRu = await getHtmlData("_ru");
 
   return {
     entry: {
@@ -28,6 +29,12 @@ module.exports = async (env) => {
         minify: true,
         template: "src/view/template.html",
         ...htmlData,
+      }),
+      new HtmlWebpackPlugin({
+        minify: true,
+        filename: "index_ru.html",
+        template: "src/view/template.html",
+        ...htmlDataRu,
       }),
       new MiniCssExtractPlugin({
         filename: "[name].[chunkhash].css",

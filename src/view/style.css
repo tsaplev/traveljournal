@@ -187,3 +187,23 @@ body {
   color: #999;
   text-decoration: none;
 }
+#langswitcher {
+  font-size: 28px;
+  margin-right: 10px;
+  cursor: pointer;
+  padding: 0 0.4em;
+}
+
+#langswitcher .emoji {
+  width: 25px;
+  height: 25px;
+}
+
+@media (min-width: 320px) and (max-device-width: 568px) {
+  #langswitcher {
+    margin-right: 0px;
+  }
+}
+#langswitcher:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
