@@ -1,5 +1,5 @@
 async function getTrips(db) {
-  let trips = await db.getAllRows(`
+  const trips = await db.getAllRows(`
     SELECT
     trip.id,
     trip.arrival,
@@ -16,7 +16,7 @@ async function getTrips(db) {
     ORDER BY date(trip.arrival) ASC
   `);
 
-  trips = trips.reduce((result, trip) => {
+  return trips.reduce((result, trip) => {
     const currentYear = new Date(trip.arrival).getFullYear();
     if (!result[currentYear]) {
       result[currentYear] = [];
@@ -25,8 +25,6 @@ async function getTrips(db) {
 
     return result;
   }, {});
-
-  return trips;
 }
 
 async function getTripsByCountry(db) {
@@ -41,18 +39,14 @@ async function getTripsByCountry(db) {
     ORDER BY country.name
   `);
 
-  countries.map((country) => {
+  return countries.map((country) => {
     country.cities = country.cities.split(",").sort().join(", ");
   });
-
-  return countries;
 }
 
 async function getVisitedCities(db) {
-  let cities = await db.getAllRows(`SELECT lat, lon FROM city`);
-  cities = cities.map((city) => [city.lat, city.lon]);
-
-  return cities;
+  const cities = await db.getAllRows(`SELECT lat, lon FROM city`);
+  return cities.map((city) => [city.lat, city.lon]);
 }
 
 module.exports = {
