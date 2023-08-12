@@ -1,84 +1,83 @@
-# Travel Journal — keep all your travel memories
+# Travel Journal 🌍✈️ — Preserve Your Travel Memories
 
-[![GitHub Actions](https://github.com/tsaplev/TravelJournal/workflows/CI/badge.svg)](https://github.com/tsaplev/TravelJournal/actions)
+[![GitHub Actions](https://github.com/tsaplev/traveljournal/workflows/CI/badge.svg)](https://github.com/tsaplev/traveljournal/actions)
 
-> App for tracking visited cities and flights
+> An intuitive app for tracking visited cities, flights, and capturing the essence of your adventures!
 
-![TravelJournal](./preview.jpg)
+![TravelJournal Preview](./preview.jpg)
 
-## Features
+## 🌟 Features
 
-- View visited cities on map
-- View flight paths on map
-- View list of travels sorted by countries and years
-- Switch between Cities Map and Flights Map
-- Keep all your data self-hosted
+- 📍 Plot and view visited cities on a map
+- ✈️ Trace and view your flight paths
+- 📆 Access an organized list of travels, categorized by countries and years
+- 🔄 Seamlessly switch between Cities Map and Flights Map views
+- 🛡 Keep all your precious data self-hosted and secure
 
-## Demo Mode
+## 🎥 Demo Mode
 
-Demo of latest version is available at [https://tsaplev.github.io/TravelJournal](https://tsaplev.github.io/TravelJournal).
+Check out the latest version demo [here](https://tsaplev.github.io/TravelJournal).
 
-You can also try app locally without making any effort.
+**Quick Local Try-Out:**
 
-1. Create build.
-
+1. Generate a local build:
    ```sh
    yarn build:demo
    ```
+2. Launch `dist/index.html` in your browser.
 
-2. Open `dist/index.html` in browser.
+## 🚀 Getting Started
 
-## Getting Started
+### 1. Fill Database With Your Travel Data
 
-### Fill Database With Personal Travels
+> **NOTE**: _A basic understanding of relational databases is needed._
 
-> **NOTE**: _You are required to have basic understanding of relational databases._
+Utilize your preferred tool to populate the SQLite database [db.sqlite3](./db.sqlite3). The table sequence is: `continent`, `country`, `city`, `trip`.
 
-Use any software you like to fill in SQLite database [db.sqlite3](./db.sqlite3) with the following table sequence: `continent`, `country`, `city`, `trip`.
+![Database Schema](./dbschema.png)
 
-![TravelJournal](./dbschema.png)
+### 2. Sync with Flightradar Profile
 
-### Complete Flightradar Profile
+Our app leverages [my.flightradar24.com](https://my.flightradar24.com) for flight data. If you're not on it yet, sign up and complete your profile.
 
-App uses [my.flightradar24.com](https://my.flightradar24.com) as the main source for flights data so sign up and complete your profile if you don't have one.
+### 3. Personalize Your Configuration
 
-### Set Up Configuration File
-
-Update [config.js](src/view/config.js) with your own credentials.
+Adjust the [config.js](src/view/config.js) with your details:
 
 | Key                 | Description                                                                                   |
 | ------------------- | --------------------------------------------------------------------------------------------- |
-| siteTitle           | The title that appears in browser tab                                                         |
-| title               | Write your name there                                                                         |
+| siteTitle           | The title for the browser tab                                                                 |
+| title               | Your name                                                                                     |
 | googleMapApiKey     | [Google Map API Key](https://developers.google.com/maps/documentation/javascript/get-api-key) |
-| flightradarUsername | Username on [my.flightradar24.com ](https://my.flightradar24.com/)                            |
+| flightradarUsername | Your username on [my.flightradar24.com](https://my.flightradar24.com/)                        |
 
-### Install Dependencies
+### 4. Set Up the App
 
-```sh
-yarn install
-```
+- **Install Dependencies**
 
-### Build App
+  ```sh
+  yarn install
+  ```
 
-```sh
-yarn build
-```
+- **Build the App**
+  ```sh
+  yarn build
+  ```
 
-### Usage
+### 5. Dive In!
 
-Open `index.html` in `dist` folder after build is done.
+After building, just open the `index.html` inside the `dist` folder.
 
-## Technologies
+## 🛠 Technologies Used
 
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) is the main development language.
-- [Node.js](https://nodejs.org/en/) is for running scripts.
-- [SQLite](https://www.sqlite.org/index.html) is for storing data.
-- [Webpack](http://webpack.js.org) is for bundling frontend code.
-- [Yarn](https://yarnpkg.com) is for dependency management.
-- [ESLint](https://eslint.org) is for checking code style.
-- [Jest](https://jestjs.io) is for testing.
+- **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** - Our primary development language.
+- **[Node.js](https://nodejs.org/en/)** - For script execution.
+- **[SQLite](https://www.sqlite.org/index.html)** - Data storage solution.
+- **[Webpack](http://webpack.js.org)** - Frontend code bundling.
+- **[Yarn](https://yarnpkg.com)** - Dependency management.
+- **[ESLint](https://eslint.org)** - Ensuring consistent code style.
+- **[Jest](https://jestjs.io)** - Unit testing.
 
-## License
+## 📜 License
 
-[MIT](./LICENSE)
+Licensed under the [MIT License](./LICENSE).
