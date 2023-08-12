@@ -8,10 +8,32 @@ const { googleMapConfig, selectorsTitles } = require("./config");
 
 require("./style.css");
 
+// Support Emoji on non Apple platforms
+const platform = window.navigator.platform;
+const isApple = platform.includes("Mac") || platform.includes("iP");
+
+if (!isApple) {
+  const script = document.createElement("script");
+  script.src = "https://twemoji.maxcdn.com/v/latest/twemoji.min.js";
+  script.crossorigin = "anonymous";
+  script.onload = () => {
+    window.twemoji.parse(document.body);
+  };
+  const ref = document.querySelector("script");
+  ref.parentNode.insertBefore(script, ref);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Content tabs switcher
   const tabs = document.querySelector("div.filters-box");
   tabs.addEventListener("click", function ({ target }) {
-    if (target.classList.contains("filters-box__item")) {
+    const [currentTab] = document.getElementsByClassName(
+      "filters-box__item _active"
+    );
+    if (
+      currentTab !== target &&
+      target.classList.contains("filters-box__item")
+    ) {
       Array.from(tabs.children).forEach((tab) => {
         const contentId = tab.getAttribute("data-content");
         document.getElementsByClassName(contentId)[0].style.display =
